@@ -8,4 +8,6 @@ public interface StudentService {
     StudentDTO getStudentByStudentId(long studentId);
 
     Long addNewStudent(StudentDTO studentDTO);
+
+    void deleteStudentByStudentId(long studentId);
 }

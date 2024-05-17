@@ -32,4 +32,10 @@ public class StudentServiceImpl implements StudentService{
         }
 
     }
+
+    @Override
+    public void deleteStudentByStudentId(long studentId) {
+        studentRepository.findByStudentId(studentId).orElseThrow(RuntimeException::new);
+        studentRepository.deleteByStudentId(studentId);
+    }
 }

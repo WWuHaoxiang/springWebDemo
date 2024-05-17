@@ -14,12 +14,17 @@ public class StudentController {
         this.studentService = studentService;
     }
 
-    @GetMapping("/student/{id}")
-    public Response<StudentDTO> getStudentById(@PathVariable long id){
-        return Response.newSuccess(studentService.getStudentByStudentId(id));
+    @GetMapping("/student/{studentId}")
+    public Response<StudentDTO> getStudentByStudentId(@PathVariable long studentId){
+        return Response.newSuccess(studentService.getStudentByStudentId(studentId));
     }
     @PostMapping("/student")
     public Response<Long> addNewStudent(@RequestBody StudentDTO studentDTO){
         return Response.newSuccess(studentService.addNewStudent(studentDTO));
     }
+    @DeleteMapping("/student/{studentId}")
+    public void deleteStudentByStudentId(@PathVariable long studentId){
+        studentService.deleteStudentByStudentId(studentId);
+    }
+
 }
