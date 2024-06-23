@@ -1,7 +1,9 @@
-package com.e4_student.dao;
+package net.resourceOfWuHX.dao;
 
 import jakarta.persistence.*;
+import lombok.Getter;
 
+@Getter
 @Entity
 @Table(name = "students")
 public class Student {
@@ -19,32 +21,16 @@ public class Student {
     @Column(name = "name")
     private String name;
 
-    public long getId() {
-        return id;
-    }
-
     public void setId(long id) {
         this.id = id;
-    }
-
-    public long getStudentId() {
-        return studentId;
     }
 
     public void setStudentId(long studentId) {
         this.studentId = studentId;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public void setName(String name) {

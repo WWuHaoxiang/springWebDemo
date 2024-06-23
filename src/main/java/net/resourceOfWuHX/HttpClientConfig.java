@@ -1,4 +1,4 @@
-package com.e4_student;
+package net.resourceOfWuHX;
 
 import lombok.Data;
 import org.apache.http.client.config.RequestConfig;

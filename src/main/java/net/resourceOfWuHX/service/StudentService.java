@@ -1,6 +1,8 @@
-package com.e4_student.service;
+package net.resourceOfWuHX.service;
 
-import com.e4_student.dto.StudentDTO;
+import net.resourceOfWuHX.dto.StudentDTO;
+
+import java.util.List;
 
 public interface StudentService {
 
@@ -11,4 +13,6 @@ public interface StudentService {
     void deleteStudentByStudentId(long studentId);
 
     StudentDTO updateStudentByStudentId(long studentId, String name, String email);
+
+    List<StudentDTO> getAllStudent();
 }

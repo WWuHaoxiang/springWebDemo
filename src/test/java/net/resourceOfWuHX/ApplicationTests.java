@@ -1,10 +1,10 @@
-package com.e4_student;
+package net.resourceOfWuHX;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class E4StudentApplicationTests {
+class ApplicationTests {
 
     @Test
     void contextLoads() {

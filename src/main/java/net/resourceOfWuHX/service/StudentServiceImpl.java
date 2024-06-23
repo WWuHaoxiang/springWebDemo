@@ -1,12 +1,15 @@
-package com.e4_student.service;
+package net.resourceOfWuHX.service;
 
-import com.e4_student.converter.StudentConverter;
-import com.e4_student.dao.Student;
-import com.e4_student.dao.StudentRepository;
-import com.e4_student.dto.StudentDTO;
+import net.resourceOfWuHX.converter.StudentConverter;
+import net.resourceOfWuHX.dao.Student;
+import net.resourceOfWuHX.dao.StudentRepository;
+import net.resourceOfWuHX.dto.StudentDTO;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class StudentServiceImpl implements StudentService{
@@ -53,5 +56,17 @@ public class StudentServiceImpl implements StudentService{
         }
         Student student = studentRepository.save(studentInDB);
         return StudentConverter.convertStudent(student);
+    }
+
+    @Override
+    public List<StudentDTO> getAllStudent() {
+        List<StudentDTO> studentDTOList = new ArrayList<>();
+        List<Student> studentList = studentRepository.findAll();
+
+        for (Student student: studentList){
+            studentDTOList.add(StudentConverter.convertStudent(student));
+        }
+
+        return studentDTOList;
     }
 }

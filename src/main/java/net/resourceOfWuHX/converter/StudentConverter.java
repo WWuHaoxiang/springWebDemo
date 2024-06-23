@@ -1,7 +1,7 @@
-package com.e4_student.converter;
+package net.resourceOfWuHX.converter;
 
-import com.e4_student.dao.Student;
-import com.e4_student.dto.StudentDTO;
+import net.resourceOfWuHX.dao.Student;
+import net.resourceOfWuHX.dto.StudentDTO;
 
 public class StudentConverter {
 

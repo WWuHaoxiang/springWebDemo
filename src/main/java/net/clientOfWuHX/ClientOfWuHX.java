@@ -1,4 +1,4 @@
-package com.e4_student;
+package net.clientOfWuHX;
 
 import org.apache.http.client.methods.*;
 import org.apache.http.entity.ContentType;
@@ -8,25 +8,25 @@ import org.apache.http.impl.client.HttpClients;
 
 import java.io.IOException;
 
-public class Client {
+public class ClientOfWuHX {
     public static void main(String[] args) {
-        System.out.println(Client.GET_3121005143());
-        System.out.println(Client.POST_3121005040());
-        System.out.println(Client.DELETE_3121005040());
-        System.out.println(Client.PUT_wuhaoxiang());
+        System.out.println(ClientOfWuHX.GET_3121005143());
+        System.out.println(ClientOfWuHX.POST(Long.parseLong("3121005011"), "吴凯越"));
+        System.out.println(ClientOfWuHX.POST(Long.parseLong("3121005126"), "黄晓峰"));
+        System.out.println(ClientOfWuHX.POST(Long.parseLong("3121005037"), "李方洋"));
+        System.out.println(ClientOfWuHX.DELETE(Long.parseLong("3121005011")));
+        System.out.println(ClientOfWuHX.DELETE(Long.parseLong("3121005126")));
+        System.out.println(ClientOfWuHX.DELETE(Long.parseLong("3121005037")));
+        System.out.println(ClientOfWuHX.PUT_wuhaoxiang());
     }
 
-    private static HttpPost getHttpPost() {
+    private static HttpPost getHttpPost(long studentId, String name) {
         HttpPost httpPost = new HttpPost("http://localhost:8081/student");
 
         // 设置POST请求头
         httpPost.addHeader("Content-Type", "application/json");
         // 设置 POST 请求参数
-            String requestBody = """
-                {
-                  "studentId": 3121005040,
-                  "name": "lizhen"
-                }""";
+        String requestBody = "{\"studentId\": " + studentId + " ,\"name\": \"" + name + "\"}";
         httpPost.setEntity(new StringEntity(requestBody, ContentType.APPLICATION_JSON));
         return httpPost;
     }
@@ -60,9 +60,9 @@ public class Client {
         }
     }
 
-    private static CloseableHttpResponse POST_3121005040(){
+    private static CloseableHttpResponse POST(long studentId, String name){
         try (CloseableHttpClient client = HttpClients.createDefault()) {
-            HttpPost httpPost = getHttpPost();
+            HttpPost httpPost = getHttpPost(studentId, name);
 
             return client.execute(httpPost);
 
@@ -73,9 +73,9 @@ public class Client {
         }
     }
 
-    private static CloseableHttpResponse DELETE_3121005040(){
+    private static CloseableHttpResponse DELETE(Long studentId){
         try (CloseableHttpClient client = HttpClients.createDefault()) {
-            HttpDelete httpDelete = new HttpDelete("http://localhost:8081/student/3121005040");
+            HttpDelete httpDelete = new HttpDelete("http://localhost:8081/student/" + studentId);
 
             return client.execute(httpDelete);
 

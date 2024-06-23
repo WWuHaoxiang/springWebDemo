@@ -1,12 +1,12 @@
-package com.e4_student;
+package net.resourceOfWuHX;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class E4StudentApplication {
+public class Application {
     public static void main(String[] args) {
-        SpringApplication.run(E4StudentApplication.class, args);
+        SpringApplication.run(Application.class, args);
     }
 
 }

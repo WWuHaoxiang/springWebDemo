@@ -1,9 +1,11 @@
-package com.e4_student.controller;
+package net.resourceOfWuHX.controller;
 
-import com.e4_student.Response;
-import com.e4_student.dto.StudentDTO;
-import com.e4_student.service.StudentService;
+import net.resourceOfWuHX.Response;
+import net.resourceOfWuHX.dto.StudentDTO;
+import net.resourceOfWuHX.service.StudentService;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class StudentController {
@@ -31,6 +33,11 @@ public class StudentController {
                                                          @RequestParam(required = false) String name,
                                                          @RequestParam(required = false) String email){
         return Response.newSuccess(studentService.updateStudentByStudentId(studentId, name, email));
+    }
+
+    @GetMapping("/student")
+    public Response<List<StudentDTO>> getAllStudent(){
+        return Response.newSuccess(studentService.getAllStudent());
     }
 
 }

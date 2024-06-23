@@ -1,4 +1,4 @@
-package com.e4_student.dao;
+package net.resourceOfWuHX.dao;
 
 import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
